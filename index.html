@@ -583,6 +583,7 @@ footer h4{font-size:13px;font-weight:700;color:var(--white);letter-spacing:.05em
         <label for="qf-description">What needs to go?</label>
         <textarea id="qf-description" name="description" placeholder="e.g. old couch, yard debris, garage cleanout..." required></textarea>
       </div>
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" aria-hidden="true">
       <button type="submit">Request My Free Quote</button>
     </form>
   </div>
@@ -667,6 +668,10 @@ quoteForm.addEventListener('submit', async function(e) {
   e.preventDefault();
   const submitBtn = quoteForm.querySelector('button[type="submit"]');
   const originalLabel = submitBtn.textContent;
+
+  if (quoteForm.querySelector('[name="_gotcha"]').value) {
+    return;
+  }
 
   if (quoteForm.action.includes('YOUR_FORM_ID')) {
     submitBtn.textContent = 'Online quotes coming soon — please call';
