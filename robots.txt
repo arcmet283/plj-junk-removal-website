@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://arcmet283.github.io/plj-junk-removal-website/sitemap.xml
